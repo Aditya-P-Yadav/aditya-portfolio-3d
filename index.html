@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aditya Pratap Yadav — Business Analyst</title>
+<meta name="description" content="Graduate Business Analyst in Birmingham. Business analytics postgraduate with a computer science background. SQL, Python, Tableau, and the questions that come first.">
+<meta name="theme-color" content="#070B18">
+<link rel="canonical" href="https://aditya-portfolio-3d.netlify.app/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070B18'/%3E%3Cpath d='M7 23 L16 8 L25 23' fill='none' stroke='%2334E7C5' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M11.5 18.5 h9' stroke='%236C8CFF' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Aditya Pratap Yadav — Business Analyst">
+<meta property="og:description" content="Graduate Business Analyst in Birmingham. I turn open briefs into something a team can actually run.">
+<meta property="og:url" content="https://aditya-portfolio-3d.netlify.app/">
+<meta property="og:image" content="https://aditya-portfolio-3d.netlify.app/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* every ratio below is computed, not estimated */
+  --canvas:#070B18;          /* deep space navy */
+  --canvas-2:#0A1024;
+  --panel:#111838;           /* cards */
+  --panel-edge:#23305C;      /* DECORATIVE hairline only, never an interactive border */
+  --border-int:#5268AE;      /* anything clickable. 3.69:1 on canvas, 3.26:1 on panel */
+  --teal:#34E7C5;            /* 12.51:1 */
+  --blue:#6C8CFF;            /* 6.39:1 */
+  --violet:#A77BFF;          /* 6.47:1 */
+  --ink:#070B18;             /* text ON an accent fill. White would be 1.57:1 and fails */
+  --text:#E9EDFB;            /* 16.79:1 */
+  --text-2:#99A5C8;          /* 8.01:1 */
+  --text-3:#6E7CA6;          /* 4.76:1, safe for small text too */
+  --grad:linear-gradient(103deg,var(--teal),var(--blue) 52%,var(--violet));
+  --display:'Sora',system-ui,sans-serif;
+  --body:'Manrope',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --tshadow:0 1px 2px rgba(3,6,16,.95),0 4px 16px rgba(3,6,16,.8),0 12px 48px rgba(3,6,16,.82);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-soft:cubic-bezier(.4,0,.2,1);
+}
+*{box-sizing:border-box}
+html,body{overflow-x:hidden;overflow-x:clip}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--canvas);color:var(--text-2);
+  font-family:var(--body);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);color:var(--text);line-height:1.05;margin:0;letter-spacing:-.025em}
+p{margin:0}
+a{color:inherit}
+figure{margin:0}
+img{max-width:100%;display:block}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ---------- starfield, the one fixed environment ---------- */
+/* canvas is a replaced element, so inset:0 with width:auto resolves to its intrinsic
+   300x150 instead of stretching. It needs explicit dimensions or the starfield draws
+   into a small patch in the corner. */
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+.nebula{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 58% 44% at 18% 14%,rgba(52,231,197,.10),transparent 62%),
+    radial-gradient(ellipse 54% 46% at 84% 30%,rgba(108,140,255,.12),transparent 64%),
+    radial-gradient(ellipse 60% 50% at 52% 88%,rgba(167,123,255,.09),transparent 66%);
+  animation:neb 110s var(--ease-soft) infinite alternate;animation-delay:-37s}
+@keyframes neb{0%{transform:translate3d(0,0,0) scale(1)}100%{transform:translate3d(-2%,2.5%,0) scale(1.1)}}
+
+/* ---------- skip + nav ---------- */
+.skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--teal);color:var(--ink);
+  padding:12px 20px;font-family:var(--mono);font-size:13px;border-radius:0 0 10px 0}
+.skip:focus{left:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;
+  justify-content:space-between;gap:18px;padding:15px clamp(16px,4vw,44px);
+  background:linear-gradient(to bottom,rgba(7,11,24,.9),rgba(7,11,24,.6) 62%,transparent);
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
+.brand .mk{width:30px;height:30px;flex:none}
+.brand b{font-family:var(--display);font-weight:700;font-size:15px;color:var(--text);letter-spacing:-.01em}
+.navlinks{display:flex;align-items:center;gap:clamp(12px,1.9vw,28px)}
+.navlinks a{font-family:var(--mono);font-size:12.5px;letter-spacing:.05em;color:var(--text-2);
+  text-decoration:none;transition:color .3s var(--ease)}
+.navlinks a:hover{color:var(--text)}
+.talk{background:var(--grad);color:var(--ink)!important;font-family:var(--body)!important;
+  font-weight:700;font-size:13.5px!important;letter-spacing:0!important;padding:10px 20px;border-radius:999px;
+  transition:transform .3s var(--ease),filter .3s var(--ease)}
+.talk:hover{transform:translateY(-2px);filter:brightness(1.08)}
+@media (max-width:900px){.navlinks a:not(.talk){display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--body);
+  font-weight:600;font-size:14.5px;padding:14px 26px;border-radius:999px;text-decoration:none;
+  cursor:pointer;border:1px solid transparent;
+  transition:transform .32s var(--ease),filter .32s var(--ease),border-color .32s var(--ease),color .32s var(--ease)}
+.btn-grad{background:var(--grad);color:var(--ink);font-weight:700}
+.btn-grad:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn-ghost{border-color:var(--border-int);color:var(--text)}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-2px)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
+@media (pointer:coarse){.btn,.talk{min-height:44px}}
+
+/* ---------- HERO: pinned stage, character portal, orbiting chips ---------- */
+.hero{position:relative;height:440vh;z-index:2}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden}
+.ghost{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:1}
+.ghost span{font-family:var(--display);font-weight:800;letter-spacing:-.05em;
+  font-size:clamp(88px,20vw,300px);line-height:1;color:#fff;opacity:.035;
+  transition:opacity .6s var(--ease);white-space:nowrap}
+
+.portal{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(58vw,640px);aspect-ratio:16/10;pointer-events:none}
+.portal .inner{position:absolute;inset:0;overflow:hidden;
+  -webkit-mask-image:radial-gradient(ellipse 60% 64% at 52% 48%,#000 38%,rgba(0,0,0,.55) 62%,transparent 80%);
+  mask-image:radial-gradient(ellipse 60% 64% at 52% 48%,#000 38%,rgba(0,0,0,.55) 62%,transparent 80%)}
+.portal .poster{position:absolute;inset:0;width:100%;height:100%;
+  background-size:contain;background-position:center;background-repeat:no-repeat;
+  transition:opacity .3s var(--ease)}
+/* canvas is a replaced element: without explicit width/height it renders at its intrinsic
+   300x150 rather than filling the box */
+.portal #model{position:absolute;inset:0;width:100%;height:100%;display:block;
+  opacity:0;transition:opacity 1.1s var(--ease)}
+.stage.model-ready #model{opacity:1}
+.stage.model-ready .poster{opacity:0}
+.stage.model-failed #model{display:none}
+.portal .halo{position:absolute;inset:-14%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(108,140,255,.16),transparent 62%)}
+
+/* orbit ring */
+.orbit{position:absolute;z-index:3;left:50%;top:50%;width:min(80vw,820px);height:min(80vw,820px);
+  transform:translate(-50%,-50%);pointer-events:none}
+.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(82,104,174,.20)}
+.orbit .ring.r2{inset:13%;border-color:rgba(82,104,174,.13)}
+.chip{position:absolute;left:50%;top:50%;display:flex;align-items:center;gap:8px;
+  padding:8px 14px 8px 9px;border-radius:999px;background:rgba(17,24,56,.82);
+  border:1px solid var(--panel-edge);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap;
+  box-shadow:0 8px 28px rgba(3,6,16,.5)}
+.chip i{width:20px;height:20px;border-radius:6px;display:grid;place-items:center;flex:none;
+  font-style:normal;font-size:10px;font-weight:700;font-family:var(--body);color:var(--ink)}
+@media (max-width:820px){.chip{font-size:10.5px;padding:6px 11px 6px 7px}.chip i{width:17px;height:17px;font-size:9px}}
+
+/* hero copy bands */
+.bands{position:absolute;inset:0;z-index:4;display:grid;align-items:end;
+  padding:0 clamp(20px,6vw,88px) clamp(70px,13vh,130px);pointer-events:none}
+.band{grid-area:1/1;opacity:0;text-shadow:var(--tshadow);will-change:opacity;max-width:44ch}
+.band .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px}
+.band h1,.band h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,5.2vw,68px);line-height:1.02}
+.band .sub{margin-top:16px;font-size:clamp(15px,1.4vw,19px);color:var(--text);opacity:.92;max-width:38ch}
+.band .cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;pointer-events:auto}
+.w{display:inline-block;white-space:pre}
+.c{display:inline-block;white-space:pre}
+.e-rise .w{--kc:clamp(0,(var(--k,0) - var(--th,0))*2.8,1);opacity:var(--kc);
+  transform:translateY(calc((1 - var(--kc))*28px))}
+.e-rise .sub{--ks:clamp(0,(var(--k,0) - .6)*3.4,1);opacity:var(--ks);transform:translateY(calc((1 - var(--ks))*14px))}
+.e-rise .cta{--kb:clamp(0,(var(--k,0) - .74)*4.4,1);opacity:var(--kb);transform:translateY(calc((1 - var(--kb))*14px))}
+.e-char .c{--kc:clamp(0,(var(--k,0) - var(--th,0))*2.6,1);opacity:var(--kc);
+  transform:translate(calc((1 - var(--kc))*var(--jx,0px)),calc((1 - var(--kc))*var(--jy,0px)))}
+.e-count .w{--kc:clamp(0,(var(--k,0) - var(--th,0))*3.2,1);opacity:var(--kc);
+  transform:scale(calc(.72 + .28*var(--kc)))}
+.e-count .w.hot{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* gradient-clipped text must lose the band's text-shadow: with color:transparent the shadow
+   paints a dark silhouette of the glyphs underneath and the gradient reads almost black */
+.band .kick,.e-count .w.hot{text-shadow:none}
+
+.scrim{position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(to top,rgba(7,11,24,.94) 0%,rgba(7,11,24,.80) 22%,rgba(7,11,24,.34) 48%,rgba(7,11,24,0) 74%)}
+.ring-load{position:absolute;right:clamp(18px,4vw,42px);bottom:clamp(18px,4vw,42px);width:46px;height:46px;
+  color:var(--teal);opacity:.9;transform:rotate(-90deg);pointer-events:none;z-index:5}
+.ring-load circle{transition:stroke-dashoffset .18s linear}
+.ring-load.gone{opacity:0;transition:opacity .6s var(--ease)}
+
+/* static hero for reduced motion and very short screens */
+.static-hero{position:absolute;inset:0;z-index:6;display:none;align-items:end;
+  padding:0 clamp(20px,6vw,88px) clamp(60px,11vh,120px)}
+body.static-on .bands,body.static-on .orbit,body.static-on .ring-load{display:none}
+body.static-on .static-hero{display:flex}
+body.static-on .hero{height:100vh}
+body.static-on .portal #model{opacity:1}
+@media (max-height:560px){.ring-load{display:none}}
+/* on a phone the copy takes the full width, so lift the portal and tighten the orbit to
+   leave the lower third of the screen to the text */
+@media (max-width:760px){
+  .portal{top:38%;width:min(84vw,460px)}
+  .orbit{top:38%;width:min(96vw,430px);height:min(96vw,430px)}
+  .bands{padding-bottom:clamp(48px,9vh,90px)}
+  .band h1,.band h2{font-size:clamp(29px,8vw,44px)}
+}
+
+/* ---------- sections ---------- */
+main{position:relative;z-index:2}
+section{position:relative;padding:clamp(76px,12vh,150px) 0}
+.wrap{width:min(1160px,92vw);margin:0 auto;position:relative;z-index:2}
+.gword{position:absolute;left:50%;top:clamp(20px,5vh,70px);transform:translateX(-50%);z-index:0;
+  font-family:var(--display);font-weight:800;font-size:clamp(70px,14vw,190px);line-height:1;
+  color:#fff;opacity:.028;pointer-events:none;letter-spacing:-.05em;white-space:nowrap}
+.kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  display:inline-block}
+.h2{font-size:clamp(27px,3.9vw,50px);font-weight:800;margin-top:16px;max-width:20ch}
+.lede{margin-top:18px;font-size:clamp(16px,1.3vw,18.5px);max-width:58ch;color:var(--text-2)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.in .rv,.rv.in{opacity:1;transform:none}
+.in .rv:nth-child(2){transition-delay:.08s}
+.in .rv:nth-child(3){transition-delay:.16s}
+.in .rv:nth-child(4){transition-delay:.24s}
+.in .rv:nth-child(5){transition-delay:.32s}
+/* the retirement flag is called `settled`, never `done`: a `.done` rule elsewhere on a page
+   can silently display:none every animated element once this class lands */
+.in.settled .rv,.in.settled .rv:nth-child(2),.in.settled .rv:nth-child(3),
+.in.settled .rv:nth-child(4),.in.settled .rv:nth-child(5){transition-delay:0s!important}
+
+/* about */
+.about{display:grid;gap:clamp(28px,4.4vw,64px);grid-template-columns:minmax(0,300px) 1fr;
+  align-items:start;margin-top:clamp(36px,6vh,60px)}
+.pf{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--panel-edge)}
+.pf img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;filter:saturate(.9) contrast(1.03)}
+.pf::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(7,11,24,.5),transparent 52%),
+             linear-gradient(115deg,rgba(52,231,197,.10),rgba(167,123,255,.10))}
+.pmeta{margin-top:14px;display:grid;gap:6px;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+.prose p{font-size:clamp(16px,1.3vw,18.5px);max-width:62ch}
+.prose p+p{margin-top:18px}
+.prose b{color:var(--text);font-weight:700}
+.tags{margin-top:26px;display:flex;flex-wrap:wrap;gap:9px}
+.tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;color:var(--text-2);
+  border:1px solid var(--panel-edge);border-radius:999px;padding:7px 14px}
+.tag.hot{color:var(--teal);border-color:rgba(52,231,197,.35)}
+@media (max-width:840px){.about{grid-template-columns:1fr}.pf{max-width:270px}}
+
+/* skills */
+.skills{margin-top:clamp(36px,6vh,60px);display:grid;gap:clamp(16px,2vw,24px);
+  grid-template-columns:repeat(3,1fr)}
+.sk{background:rgba(17,24,56,.55);border:1px solid var(--panel-edge);border-radius:16px;
+  padding:clamp(20px,2.3vw,30px);position:relative;overflow:hidden;
+  transition:border-color .45s var(--ease),transform .45s var(--ease)}
+.sk:hover{border-color:var(--border-int);transform:translateY(-3px)}
+.sk::before{content:"";position:absolute;left:0;top:0;right:0;height:2px;background:var(--grad);
+  transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease) .15s}
+.in .sk::before{transform:scaleX(1)}
+.sk h3{font-size:15px;font-family:var(--mono);font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sk ul{list-style:none;margin:16px 0 0;padding:0}
+.sk li{font-size:15px;padding:5px 0;color:var(--text-2)}
+@media (max-width:880px){.skills{grid-template-columns:1fr}}
+
+/* project */
+.statement{margin-top:clamp(34px,5vh,56px);font-family:var(--display);font-weight:800;
+  font-size:clamp(26px,4.3vw,58px);line-height:1.05;letter-spacing:-.03em;max-width:20ch;color:var(--text)}
+.statement .hit{display:block;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.figs{margin-top:clamp(30px,4.5vh,50px);display:grid;gap:1px;background:var(--panel-edge);
+  grid-template-columns:repeat(4,1fr);border:1px solid var(--panel-edge);border-radius:16px;overflow:hidden}
+.fig{background:var(--canvas);padding:clamp(16px,1.9vw,26px)}
+.fig .v{font-family:var(--display);font-weight:800;font-size:clamp(22px,2.7vw,38px);color:var(--text);letter-spacing:-.03em}
+.fig .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-top:7px}
+@media (max-width:760px){.figs{grid-template-columns:repeat(2,1fr)}}
+.pcols{margin-top:clamp(34px,5vh,54px);display:grid;gap:clamp(16px,2vw,26px);grid-template-columns:repeat(3,1fr)}
+.pcols div{border-left:2px solid;border-image:var(--grad) 1;padding-left:18px}
+.pcols h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--teal);font-weight:500;margin:0 0 9px}
+.pcols p{font-size:15px}
+@media (max-width:820px){.pcols{grid-template-columns:1fr}}
+.shots{margin-top:clamp(34px,5vh,54px);display:flex;gap:16px;overflow-x:auto;padding-bottom:16px;
+  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.shot{flex:none;width:min(540px,82vw);scroll-snap-align:start}
+.shot .fr{border:1px solid var(--panel-edge);border-radius:14px;overflow:hidden;background:var(--panel);aspect-ratio:16/9}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot figcaption{margin-top:12px;font-size:14px;color:var(--text-2)}
+.shot b{color:var(--text);font-weight:700}
+
+/* experience */
+.rail{margin-top:clamp(36px,6vh,60px);padding-left:clamp(20px,3vw,40px);
+  border-left:1px solid var(--panel-edge)}
+.job{position:relative;padding-bottom:clamp(34px,5vh,54px)}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:calc(-1*clamp(20px,3vw,40px) - 5px);top:10px;
+  width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px var(--canvas),0 0 16px rgba(52,231,197,.6)}
+.job .meta{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-3);display:flex;flex-wrap:wrap;gap:6px 16px}
+.job h3{font-size:clamp(19px,1.9vw,24px);font-weight:700;margin:12px 0 5px}
+.job .role{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;color:var(--blue)}
+.job ul{list-style:none;margin:14px 0 0;padding:0;max-width:66ch}
+.job li{position:relative;padding-left:19px;font-size:15.5px;margin-bottom:9px}
+.job li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:1px;background:var(--teal)}
+
+/* education */
+.edu{margin-top:clamp(36px,6vh,60px);display:grid;gap:clamp(24px,3.4vw,52px);grid-template-columns:1fr 1fr}
+@media (max-width:860px){.edu{grid-template-columns:1fr}}
+.edu h3{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  font-weight:500;padding-bottom:12px;border-bottom:1px solid var(--panel-edge)}
+.deg{margin-top:20px}
+.deg .t{font-family:var(--display);font-weight:700;font-size:clamp(17px,1.6vw,21px);color:var(--text)}
+.deg .s{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:6px}
+.deg p{margin-top:10px;font-size:15px;max-width:52ch}
+.certs{list-style:none;margin:20px 0 0;padding:0}
+.certs li{font-size:15px;padding:8px 0;border-bottom:1px solid rgba(35,48,92,.55);display:flex;gap:14px;align-items:baseline}
+.certs li:last-child{border-bottom:0}
+.certs .src{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);flex:none;width:9ch}
+
+/* contact */
+.contact{background:linear-gradient(to bottom,transparent,rgba(10,16,36,.75))}
+.cgrid{margin-top:clamp(34px,5vh,56px);display:grid;gap:clamp(28px,4vw,60px);
+  grid-template-columns:1.05fr .95fr;align-items:start}
+@media (max-width:880px){.cgrid{grid-template-columns:1fr}}
+.field{margin-bottom:17px}
+.field label{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--text-3);margin-bottom:8px}
+.field input,.field textarea{width:100%;background:rgba(17,24,56,.6);border:1px solid var(--border-int);
+  border-radius:12px;padding:13px 15px;color:var(--text);font-family:var(--body);font-size:15.5px;
+  transition:border-color .35s var(--ease)}
+.field textarea{min-height:118px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--teal);outline:none}
+.field input::placeholder,.field textarea::placeholder{color:var(--text-3)}
+.fnote{margin-top:13px;font-size:13.5px;color:var(--text-3);max-width:48ch}
+.sent{margin-top:15px;font-family:var(--mono);font-size:13px;color:var(--teal);display:none}
+.sent.on{display:block}
+.mail{background:rgba(17,24,56,.6);border:1px solid var(--panel-edge);border-radius:18px;padding:clamp(22px,2.6vw,32px)}
+.mail .l{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
+.mail .a{font-family:var(--display);font-weight:700;font-size:clamp(17px,2vw,25px);color:var(--text);
+  margin:11px 0 17px;word-break:break-all;letter-spacing:-.02em}
+.copy{background:transparent;border:1px solid var(--border-int);color:var(--text);font-family:var(--body);
+  font-weight:600;font-size:13.5px;padding:11px 20px;border-radius:999px;cursor:pointer;
+  transition:border-color .35s var(--ease),color .35s var(--ease)}
+.copy:hover{border-color:var(--teal);color:var(--teal)}
+.sec{margin-top:24px;padding-top:22px;border-top:1px solid var(--panel-edge);display:grid;gap:11px}
+.sec a{font-family:var(--mono);font-size:13px;color:var(--text-2);text-decoration:none;transition:color .3s var(--ease)}
+.sec a:hover{color:var(--teal)}
+.status{margin-top:20px;font-family:var(--mono);font-size:12.5px;color:var(--text-3);display:flex;align-items:center;gap:10px}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);flex:none;
+  box-shadow:0 0 12px rgba(52,231,197,.8)}
+
+footer{border-top:1px solid var(--panel-edge);padding:clamp(40px,6vh,68px) 0;position:relative;z-index:2}
+.frow{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;align-items:baseline}
+.fn{font-family:var(--display);font-weight:700;font-size:17px;color:var(--text)}
+.fm{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-top:7px}
+.fl{display:flex;flex-wrap:wrap;gap:10px 24px}
+.fl a{font-family:var(--mono);font-size:12.5px;color:var(--text-2);text-decoration:none;transition:color .3s var(--ease)}
+.fl a:hover{color:var(--teal)}
+
+body.paused *,body.paused *::before,body.paused *::after{animation-play-state:paused!important}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important;transition-delay:0s!important}
+  .rv{opacity:1!important;transform:none!important}
+  .sk::before{transform:scaleX(1)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"></div>
+
+<nav>
+  <a class="brand" href="#main">
+    <svg class="mk" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#111838"/><path d="M7 23 L16 8 L25 23" fill="none" stroke="#34E7C5" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/><path d="M11.5 18.5 h9" stroke="#6C8CFF" stroke-width="2.6" stroke-linecap="round"/></svg>
+    <b>Aditya Pratap Yadav</b>
+  </a>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#project">Project</a>
+    <a href="#experience">Experience</a>
+    <a class="talk" href="#contact">Let's talk</a>
+  </div>
+</nav>
+
+<main id="main" tabindex="-1">
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-label="Introduction">
+  <div class="stage">
+    <div class="ghost" aria-hidden="true"><span id="ghost">ANALYST</span></div>
+
+    <div class="portal" aria-hidden="true">
+      <div class="halo"></div>
+      <div class="inner">
+        <div class="poster"></div>
+        <canvas id="model"></canvas>
+      </div>
+    </div>
+
+    <div class="orbit" id="orbit" aria-hidden="true">
+      <div class="ring"></div><div class="ring r2"></div>
+    </div>
+
+    <div class="scrim" aria-hidden="true"></div>
+
+    <svg class="ring-load" viewBox="0 0 48 48" aria-hidden="true">
+      <circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3"
+              stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"/>
+    </svg>
+
+    <div class="bands">
+      <div class="band e-rise" data-band="0">
+        <p class="kick">Birmingham, England</p>
+        <h1 data-split="word" data-text="Aditya Pratap Yadav"></h1>
+        <p class="sub">Graduate Business Analyst. Business analytics on top of computer science.</p>
+        <div class="cta">
+          <a class="btn btn-grad" href="#project">See the work</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="band e-char" data-band="1">
+        <h2 data-split="char" data-text="Most data arrives as a mess."></h2>
+        <p class="sub">Somebody has to make it answer a question. That is the job I trained for.</p>
+      </div>
+      <div class="band e-count" data-band="2">
+        <h2 data-split="word" data-hot="1,878 94" data-text="1,878 rows. 94 spellings. One answer."></h2>
+        <p class="sub">A live client inside the University of Birmingham Library, and a brief that did not say what to build.</p>
+      </div>
+      <div class="band e-rise" data-band="3">
+        <h2 data-split="word" data-text="Ask better questions first."></h2>
+        <p class="sub">Eligible to work in the UK, no sponsorship needed, and looking for a graduate Business Analyst role.</p>
+        <div class="cta">
+          <a class="btn btn-grad" href="#contact">Let's talk</a>
+          <a class="btn btn-ghost" href="assets/Aditya-Pratap-Yadav-CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="static-hero">
+      <div>
+        <p class="kick">Birmingham, England</p>
+        <h1 style="font-size:clamp(32px,8.5vw,56px);margin-top:14px">Aditya Pratap Yadav</h1>
+        <p class="sub" style="margin-top:15px;font-size:16px;color:var(--text);max-width:32ch">Graduate Business Analyst. I turn messy data into an answer somebody can act on.</p>
+        <div class="cta" style="margin-top:24px;display:flex;gap:11px;flex-wrap:wrap">
+          <a class="btn btn-grad" href="#contact">Let's talk</a>
+          <a class="btn btn-ghost" href="assets/Aditya-Pratap-Yadav-CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <span class="gword" aria-hidden="true">ABOUT</span>
+  <div class="wrap">
+    <div class="rvgroup">
+      <p class="kick rv">About</p>
+      <h2 class="h2 rv">Computer science first. Then the part that decides what to build.</h2>
+    </div>
+    <div class="about rvgroup">
+      <div class="rv">
+        <figure class="pf"><img src="assets/aditya-portrait.jpg" alt="Aditya Pratap Yadav" width="1100" height="1100"></figure>
+        <div class="pmeta">
+          <span>Birmingham, England</span>
+          <span>MSc Business Analytics, UoB</span>
+          <span>BTech Computer Science, VIT</span>
+        </div>
+      </div>
+      <div class="prose rv">
+        <p>I am a business analytics postgraduate with a computer science degree underneath it. Four years at VIT taught me how software actually gets built. The MSc at Birmingham taught me the part that comes before any of that: sitting with the people who will use the thing, agreeing what counts as success when nobody has written it down, and getting the numbers to say something a manager can act on.</p>
+        <p>In between I spent eleven months in a data led marketing role in India, owning the monthly reporting that decided where the budget went next. I wrote the rules for which leads were worth passing on, and I was the one presenting the numbers when the spend was being argued over.</p>
+        <p>Most recently I ran a live client engagement for the University of Birmingham Library with four others, where an open brief had to become something the team could still run after we left. <b>That is the work I want more of: an unclear question at the start, and something usable at the end.</b></p>
+        <div class="tags">
+          <span class="tag hot">Open to graduate BA roles</span>
+          <span class="tag">Requirements elicitation</span>
+          <span class="tag">SQL and Python</span>
+          <span class="tag">Tableau and Power BI</span>
+          <span class="tag">Stakeholder workshops</span>
+          <span class="tag">Forecasting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <span class="gword" aria-hidden="true">SKILLS</span>
+  <div class="wrap">
+    <div class="rvgroup">
+      <p class="kick rv">Key skills</p>
+      <h2 class="h2 rv">What I can open on Monday.</h2>
+      <p class="lede rv">The tools are the easy half. The other half is knowing which question the tool is being pointed at.</p>
+    </div>
+    <div class="skills rvgroup">
+      <div class="sk rv">
+        <h3>Business analysis</h3>
+        <ul>
+          <li>Requirements gathering and elicitation</li>
+          <li>Stakeholder management</li>
+          <li>Process mapping</li>
+          <li>Gap analysis</li>
+          <li>User stories and acceptance criteria</li>
+          <li>User acceptance testing</li>
+          <li>Requirements documentation</li>
+        </ul>
+      </div>
+      <div class="sk rv">
+        <h3>Data and analytics</h3>
+        <ul>
+          <li>SQL</li><li>Python</li><li>R</li>
+          <li>Statistical modelling</li>
+          <li>Predictive analytics and forecasting</li>
+          <li>Data cleaning and validation</li>
+          <li>Data modelling and KPI definition</li>
+        </ul>
+      </div>
+      <div class="sk rv">
+        <h3>Reporting and delivery</h3>
+        <ul>
+          <li>Tableau</li><li>Microsoft Power BI</li><li>Microsoft Excel</li>
+          <li>Google Analytics</li>
+          <li>Dashboard design</li>
+          <li>Executive reporting</li>
+          <li>Agile delivery and client workshops</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECT ============ -->
+<section id="project">
+  <span class="gword" aria-hidden="true">EVIDENCE</span>
+  <div class="wrap">
+    <div class="rvgroup">
+      <p class="kick rv">Analytics and consultancy project</p>
+      <h2 class="h2 rv">From Operational Record to Evidence Base</h2>
+      <p class="lede rv">A five person consultancy engagement for the Research Skills Team inside Libraries and Learning Resources at the University of Birmingham. A live client, their own data, their own deadline.</p>
+    </div>
+    <div class="rvgroup">
+      <p class="statement rv">The headline said attendance had fallen 48 percent.<span class="hit">It had not. The records had.</span></p>
+      <p class="lede rv">Forty seven of the 399 sessions had no attendance recorded at all, and only a quarter had a school recorded against them. Once the missing records were accounted for, average attendance per session was almost unchanged. The collapse was in the recording, not in the room.</p>
+      <div class="figs rv">
+        <div class="fig"><p class="v">4,935</p><p class="l">Total attendees</p></div>
+        <div class="fig"><p class="v">15.4</p><p class="l">Average per session</p></div>
+        <div class="fig"><p class="v">52%</p><p class="l">Delivered online</p></div>
+        <div class="fig"><p class="v">4.38</p><p class="l">Overall satisfaction</p></div>
+      </div>
+    </div>
+    <div class="pcols rvgroup">
+      <div class="rv"><h4>The real requirement</h4><p>No KPIs existed, so we agreed them from scratch with the client. The open brief became three ranked workstreams: workshop performance, a reporting asset the team could maintain themselves, and where engagement was missing.</p></div>
+      <div class="rv"><h4>The scope line</h4><p>Partway through, the remit moved from describing what had happened to predicting what happens next. We put the change in front of the client, agreed what it meant for the deadline, and re-set the scope in writing.</p></div>
+      <div class="rv"><h4>The handover</h4><p>1,878 records from 2023 to 2026 merged and cleaned in Python, six Tableau dashboards, exponential smoothing forecasts, and a documented pipeline so the team can rerun it without me.</p></div>
+    </div>
+    <div class="shots rv">
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-1.jpg" alt="Overview dashboard: total attendees, sessions delivered, average attendance, satisfaction and share of sessions with a school recorded" loading="lazy" decoding="async"></div><figcaption><b>Overview.</b> The headline numbers, and the footnote that turned out to matter: only 352 of the 399 sessions had attendance recorded at all.</figcaption></figure>
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-2.jpg" alt="Workshop performance dashboard: attendance per session, fill rate against planned capacity, satisfaction against attendance" loading="lazy" decoding="async"></div><figcaption><b>Workshop performance.</b> Fill rate against planned capacity, and satisfaction plotted against attendance so the client could see where to act.</figcaption></figure>
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-3.jpg" alt="Forecast dashboard: attendance forecast, appointment forecast, demand by category and delivery mode" loading="lazy" decoding="async"></div><figcaption><b>Forecasts.</b> Exponential smoothing on attendance, one to one appointments, demand by category and delivery mode.</figcaption></figure>
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-4.jpg" alt="Engagement dashboard: college engagement by service type and what can be attributed to a college" loading="lazy" decoding="async"></div><figcaption><b>Engagement gaps.</b> Which colleges use which service, and an honest split of what can and cannot be attributed to a college at all.</figcaption></figure>
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-5.jpg" alt="Service mix dashboard: service mix by college, most requested topics, seasonality and delivery format" loading="lazy" decoding="async"></div><figcaption><b>Seasonality and service mix.</b> When each service peaks across the academic year, and how attendance splits by term and format.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <span class="gword" aria-hidden="true">RECORD</span>
+  <div class="wrap">
+    <div class="rvgroup">
+      <p class="kick rv">Professional experience</p>
+      <h2 class="h2 rv">I have already worked inside a delivery team.</h2>
+    </div>
+    <div class="rail rvgroup">
+      <article class="job rv">
+        <p class="meta"><span>Oct 2024 to Aug 2025</span><span>Gautam Buddha Nagar, India</span><span>Hybrid</span></p>
+        <h3>Real Prosperity Pvt. Ltd.</h3>
+        <p class="role">Digital Marketing Executive</p>
+        <ul>
+          <li>Prepared and presented the monthly Tableau reporting on lead generation spend, campaign return and channel effectiveness, which is what the budget decisions were argued from.</li>
+          <li>Defined the lead qualification criteria with sales and marketing, covering budget, location and property type, so only prospects matching a real requirement moved downstream.</li>
+          <li>Passed pre-qualified leads to the marketing team with a written summary of each client requirement, so follow up was faster and better targeted.</li>
+          <li>Ran and optimised Google Ads campaigns against cost per lead and conversion, tracked through to booked site visits.</li>
+        </ul>
+      </article>
+      <article class="job rv">
+        <p class="meta"><span>Apr 2024 to Jul 2024</span><span>Noida, India</span></p>
+        <h3>Refenia Tech Pvt. Ltd.</h3>
+        <p class="role">Web Developer Intern</p>
+        <ul>
+          <li>Gathered functional requirements from internal stakeholders and turned them into development tasks, wireframes and acceptance criteria.</li>
+          <li>Built and maintained responsive front end features to sprint deadlines inside a small delivery team.</li>
+          <li>Tested releases against the agreed requirements, logged defects and supported user acceptance testing before deployment.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education">
+  <span class="gword" aria-hidden="true">STUDY</span>
+  <div class="wrap">
+    <div class="rvgroup">
+      <p class="kick rv">Education and certifications</p>
+      <h2 class="h2 rv">The paperwork behind it.</h2>
+    </div>
+    <div class="edu rvgroup">
+      <div class="rv">
+        <h3>Education</h3>
+        <div class="deg">
+          <p class="t">MSc Business Analytics</p>
+          <p class="s">University of Birmingham / Sep 2025 to Sep 2026</p>
+          <p>Statistical modelling, predictive analytics and business intelligence, assessed through a client facing group capstone.</p>
+        </div>
+        <div class="deg">
+          <p class="t">BTech Computer Science and Engineering</p>
+          <p class="s">Vellore Institute of Technology / Sep 2020 to Sep 2024</p>
+          <p>Four years of how software is designed, built and tested, which is the half of business analysis that most analysts have to learn on the job.</p>
+        </div>
+      </div>
+      <div class="rv">
+        <h3>Certifications</h3>
+        <ul class="certs">
+          <li><span class="src">DataCamp</span><span>Intermediate SQL</span></li>
+          <li><span class="src">DataCamp</span><span>Data Manipulation in SQL</span></li>
+          <li><span class="src">DataCamp</span><span>Intermediate Python</span></li>
+          <li><span class="src">DataCamp</span><span>Analyzing Data in Tableau</span></li>
+          <li><span class="src">DataCamp</span><span>Introduction to Power BI</span></li>
+          <li><span class="src">DataCamp</span><span>Introduction to Statistics</span></li>
+          <li><span class="src">LinkedIn</span><span>Business Analysis Foundations</span></li>
+          <li><span class="src">LinkedIn</span><span>Essential Tools and Techniques</span></li>
+          <li><span class="src">LinkedIn</span><span>Strategic Business Analysis Essentials</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <span class="gword" aria-hidden="true">TALK</span>
+  <div class="wrap">
+    <div class="rvgroup">
+      <p class="kick rv">Contact</p>
+      <h2 class="h2 rv">If that sounded like the person you need, say so.</h2>
+      <p class="lede rv">I read everything. One line is plenty.</p>
+    </div>
+    <div class="cgrid">
+      <form id="cform" novalidate>
+        <div class="field"><label for="f-name">Your name</label>
+          <input id="f-name" type="text" autocomplete="name" placeholder="Who is getting in touch" required></div>
+        <div class="field"><label for="f-email">Your email</label>
+          <input id="f-email" type="email" autocomplete="email" placeholder="Where I should reply" required></div>
+        <div class="field"><label for="f-msg">What the role is</label>
+          <textarea id="f-msg" placeholder="A line about the role, the team, or the problem" required></textarea></div>
+        <button type="submit" class="btn btn-grad">Send message</button>
+        <p class="fnote">This opens your own email app with the message ready to send. If nothing opens, the address is right beside this.</p>
+        <p class="sent" id="sent" role="status">Your email app should have opened with the message ready. If it did not, copy the address instead.</p>
+      </form>
+      <div>
+        <div class="mail">
+          <p class="l">Or email me directly</p>
+          <p class="a">apy270602@gmail.com</p>
+          <button type="button" class="copy" id="copy">Copy address</button>
+        </div>
+        <div class="sec">
+          <a href="tel:+447887149513">07887 149513</a>
+          <a href="https://www.linkedin.com/in/aditya-pratap-yadav-6505742a5/" target="_blank" rel="noopener noreferrer">linkedin.com/in/aditya-pratap-yadav-6505742a5</a>
+          <a href="assets/Aditya-Pratap-Yadav-CV.pdf" download>Download CV (PDF)</a>
+        </div>
+        <p class="status">Eligible to work in the UK. No sponsorship needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <div>
+      <p class="fn">Aditya Pratap Yadav</p>
+      <p class="fm">Graduate Business Analyst / Birmingham, England</p>
+    </div>
+    <div class="fl">
+      <a href="mailto:apy270602@gmail.com">apy270602@gmail.com</a>
+      <a href="tel:+447887149513">07887 149513</a>
+      <a href="https://www.linkedin.com/in/aditya-pratap-yadav-6505742a5/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="assets/Aditya-Pratap-Yadav-CV.pdf" download>CV</a>
+    </div>
+  </div>
+</footer>
+
+<!-- three.js r128 and its glTF loader, vendored locally so the site carries no runtime CDN
+     dependency. Deferred, so they parse after the page paints; the inline script below boots
+     the model from DOMContentLoaded, which fires after deferred scripts have run. -->
+<script src="assets/lib/three.min.js" defer></script>
+<script src="assets/lib/GLTFLoader.js" defer></script>
+
+<script>
+(function(){
+"use strict";
+
+/* The placeholder is a render of the model itself, made offline with the same camera and
+   the same lights, so the swap to the live 3D is invisible. It used to be a frame of the old
+   video, which flashed a completely different picture for about a second on every load. */
+var POSTER='assets/model-poster.webp';
+var MODEL_URL='assets/aditya-model.glb';
+/* only these get a still hero: reduced motion, and a screen with no room for the journey */
+var STATIC_GATES=['(prefers-reduced-motion: reduce)','(max-height: 460px)'];
+
+var BANDS=[{a:0.00,b:0.20},{a:0.24,b:0.44},{a:0.48,b:0.68},{a:0.74,b:1.00}];
+var GHOSTS=['ANALYST','CLARITY','EVIDENCE','READY'];
+
+var stage=document.querySelector('.stage');
+var heroSec=document.querySelector('.hero');
+var posterL=document.querySelector('.portal .poster');
+var ring=document.querySelector('.ring-load');
+var bandEls=[].slice.call(document.querySelectorAll('.band'));
+var ghostEl=document.getElementById('ghost');
+var orbitEl=document.getElementById('orbit');
+
+function clamp(v,lo,hi){return Math.min(hi,Math.max(lo,v));}
+function smoothstep(p,e0,e1){var t=clamp((p-e0)/(e1-e0),0,1);return t*t*(3-2*t);}
+function rng(s){s=s>>>0;return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296;};}
+var reduceMQ=window.matchMedia('(prefers-reduced-motion: reduce)');
+function setRing(v){if(ring)ring.style.setProperty('--ld',v);}
+
+posterL.style.backgroundImage="url('"+POSTER+"')";
+
+/* ---------- starfield ---------- */
+(function starfield(){
+  var cv=document.getElementById('stars'),ctx=cv.getContext('2d'),stars=[],w=0,h=0,dpr=1,raf=null,running=false;
+  function size(){
+    dpr=Math.min(2,window.devicePixelRatio||1);
+    w=cv.clientWidth;h=cv.clientHeight;
+    cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    var n=Math.round(Math.min(190,(w*h)/9000));
+    var r=rng(4242);stars=[];
+    for(var i=0;i<n;i++){
+      stars.push({x:r()*w,y:r()*h,z:.35+r()*.65,r:.4+r()*1.5,
+        tw:r()*Math.PI*2,sp:.12+r()*.35,
+        c:r()<.18?'52,231,197':(r()<.4?'167,123,255':'201,214,255')});
+    }
+  }
+  var lastDraw=0;
+  function frame(t){
+    raf=requestAnimationFrame(frame);
+    /* the starfield is position:fixed so it is never off screen and legitimately runs the
+       whole time. It is decorative, so cap the repaint at ~32fps: imperceptible on drifting
+       stars and it halves the paint cost on a laptop battery. */
+    if(t-lastDraw<30) return;
+    lastDraw=t;
+    ctx.clearRect(0,0,w,h);
+    for(var i=0;i<stars.length;i++){
+      var s=stars[i];
+      s.y-=s.sp*s.z*0.25; if(s.y<-4){s.y=h+4;s.x=Math.random()*w;}
+      var a=(0.30+0.55*(0.5+0.5*Math.sin(t*0.0011*s.sp+s.tw)))*s.z;
+      ctx.beginPath();ctx.fillStyle='rgba('+s.c+','+a.toFixed(3)+')';
+      ctx.arc(s.x,s.y,s.r*s.z,0,6.2832);ctx.fill();
+    }
+  }
+  function start(){ if(running||reduceMQ.matches) return; running=true; raf=requestAnimationFrame(frame); }
+  function stop(){ running=false; if(raf!==null){cancelAnimationFrame(raf);raf=null;} }
+  function still(){ ctx.clearRect(0,0,w,h);
+    for(var i=0;i<stars.length;i++){var s=stars[i];
+      ctx.beginPath();ctx.fillStyle='rgba('+s.c+','+(0.5*s.z).toFixed(3)+')';
+      ctx.arc(s.x,s.y,s.r*s.z,0,6.2832);ctx.fill();} }
+  size();
+  if(reduceMQ.matches) still(); else start();
+  addEventListener('resize',function(){size();if(!running)still();},{passive:true});
+  document.addEventListener('visibilitychange',function(){document.hidden?stop():start();});
+  if(reduceMQ.addEventListener) reduceMQ.addEventListener('change',function(e){ e.matches?(stop(),still()):start(); });
+})();
+
+/* ---------- split headlines once ---------- */
+(function split(){
+  var r=rng(90919);
+  bandEls.forEach(function(band){
+    var el=band.querySelector('[data-split]'); if(!el) return;
+    var mode=el.getAttribute('data-split'), text=el.getAttribute('data-text')||'';
+    var hot=(el.getAttribute('data-hot')||'').split(' ').filter(Boolean);
+    var sr=document.createElement('span'); sr.className='sr'; sr.textContent=text;
+    var vis=document.createElement('span'); vis.setAttribute('aria-hidden','true');
+    var words=text.split(' '), total=text.replace(/ /g,'').length, ci=0;
+    words.forEach(function(word,wi){
+      var wsp=document.createElement('span'); wsp.className='w';
+      if(hot.some(function(hw){return word.indexOf(hw)===0;})) wsp.classList.add('hot');
+      if(mode==='word'){
+        wsp.textContent=word;
+        wsp.style.setProperty('--th',(wi/Math.max(1,words.length)*0.5+r()*0.05).toFixed(3));
+      } else {
+        for(var k=0;k<word.length;k++){
+          var c=document.createElement('span'); c.className='c'; c.textContent=word[k];
+          c.style.setProperty('--th',(ci/Math.max(1,total)*0.45+r()*0.12).toFixed(3));
+          c.style.setProperty('--jx',((r()*2-1)*34).toFixed(1)+'px');
+          c.style.setProperty('--jy',((r()*2-1)*30).toFixed(1)+'px');
+          wsp.appendChild(c); ci++;
+        }
+      }
+      vis.appendChild(wsp);
+      if(wi<words.length-1) vis.appendChild(document.createTextNode(' '));
+    });
+    el.textContent=''; el.appendChild(sr); el.appendChild(vis);
+  });
+})();
+
+/* ---------- orbiting skill chips ---------- */
+var TOOLS=[
+  {n:'SQL',c:'#34E7C5'},{n:'Python',c:'#6C8CFF'},{n:'Tableau',c:'#A77BFF'},
+  {n:'Power BI',c:'#F2C14E'},{n:'R',c:'#5BD6FF'},{n:'Excel',c:'#4FD38A'},
+  {n:'Analytics',c:'#FF8FA3'}
+];
+var chipEls=[];
+(function buildChips(){
+  TOOLS.forEach(function(t){
+    var d=document.createElement('div'); d.className='chip';
+    var i=document.createElement('i'); i.style.background=t.c; i.textContent=t.n.charAt(0);
+    var s=document.createElement('span'); s.textContent=t.n;
+    d.appendChild(i); d.appendChild(s); orbitEl.appendChild(d); chipEls.push(d);
+  });
+})();
+var orbitPhase=0, lastChipAt=0, copyBox=null, lastBoxAt=-1e9;
+/* Measure the band actually on screen rather than assuming where the copy sits. Guessing a
+   zone worked on desktop and failed completely on a phone, where the text runs full width
+   instead of sitting in a left column. */
+function activeCopyBox(now){
+  if(now-lastBoxAt<250) return copyBox;
+  lastBoxAt=now;
+  var best=null,bo=-1;
+  for(var i=0;i<bandEls.length;i++){
+    var o=parseFloat(bandEls[i].style.opacity||'0');
+    if(o>bo){bo=o;best=bandEls[i];}
+  }
+  copyBox=(best&&bo>0.05)?best.getBoundingClientRect():null;
+  return copyBox;
+}
+function placeChips(now,progress){
+  var box=orbitEl.getBoundingClientRect();
+  /* on a narrow screen a chip at the far side of the orbit gets clipped by the viewport, so
+     pull the horizontal radius in and let the ring stay wide behind it */
+  var narrow=window.innerWidth<760;
+  var rx=box.width*(narrow?0.40:0.5)-8, ry=box.height*(narrow?0.46:0.42)-8;
+  var cx=box.left+box.width/2, cy=box.top+box.height/2;
+  var cb=activeCopyBox(now), pad=44;
+  for(var i=0;i<chipEls.length;i++){
+    var a=orbitPhase+(i/chipEls.length)*Math.PI*2+progress*0.9;
+    var x=Math.cos(a)*rx, y=Math.sin(a)*ry;
+    var depth=0.62+0.38*(0.5+0.5*Math.sin(a));
+    var duck=1;
+    if(cb){
+      var px=cx+x, py=cy+y;
+      var dx=Math.max(cb.left-pad-px,0,px-(cb.right+pad));
+      var dy=Math.max(cb.top-pad-py,0,py-(cb.bottom+pad));
+      duck=clamp(Math.sqrt(dx*dx+dy*dy)/70,0,1);   /* 0 inside the text, fading in over 70px */
+    }
+    chipEls[i].style.transform='translate(-50%,-50%) translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px) scale('+depth.toFixed(3)+')';
+    chipEls[i].style.opacity=((0.35+0.65*depth)*duck).toFixed(3);
+  }
+  lastChipAt=now;
+}
+
+/* ---------- hero progress ---------- */
+function heroProgress(){
+  var range=heroSec.offsetHeight-window.innerHeight;
+  if(range<=0) return 0;
+  return clamp(-heroSec.getBoundingClientRect().top/range,0,1);
+}
+
+/* ---------- caption bands, delta gated ---------- */
+var bandState=BANDS.map(function(){return{op:-1,k:-1};});
+var loadK=0,loadStart=performance.now(),loadRamping=true,lastGhost='';
+function updateBands(p){
+  var top=-1,topI=0;
+  for(var i=0;i<BANDS.length;i++){
+    var b=BANDS[i],el=bandEls[i],st=bandState[i];
+    var f=Math.min(0.02,(b.b-b.a)/3);
+    var inR=(i===0)?1:smoothstep(p,b.a,b.a+f);
+    var outR=(i===BANDS.length-1)?1:(1-smoothstep(p,b.b-f,b.b));
+    var op=inR*outR;
+    var ramp=Math.min(0.03,(b.b-b.a)*0.38);
+    var k=clamp((p-b.a)/ramp,0,1);
+    if(i===0) k=Math.max(k,loadK);
+    if(Math.abs(op-st.op)>0.004){st.op=op;el.style.opacity=op.toFixed(3);}
+    if(Math.abs(k-st.k)>0.008){st.k=k;el.style.setProperty('--k',k.toFixed(3));}
+    if(op>top){top=op;topI=i;}
+  }
+  var g=GHOSTS[topI];
+  if(g!==lastGhost){lastGhost=g;ghostEl.textContent=g;}
+}
+
+/* ================= THE 3D MODEL ================= */
+/* The GLB is a static photogrammetry bust with no skeleton, so there is no head joint to
+   articulate. Turning the whole model toward the pointer is what reads as the face
+   following the cursor, and on a bust that is indistinguishable from head tracking. */
+var MDL={ok:false,failed:false,booting:false,ren:null,scene:null,cam:null,root:null,
+         yaw:0,pitch:0,ty:0,tp:0,idle:0,pointer:false,baseZ:2.12};
+
+function modelFailed(){
+  MDL.failed=true;MDL.booting=false;
+  stage.classList.add('model-failed');
+  if(ring)ring.classList.add('gone');
+}
+function sizeModel(){
+  if(!MDL.ren) return;
+  var cv=MDL.ren.domElement;
+  var w=cv.clientWidth||1,h=cv.clientHeight||1;
+  MDL.ren.setPixelRatio(Math.min(window.innerWidth<760?1.6:2,window.devicePixelRatio||1));
+  MDL.ren.setSize(w,h,false);
+  MDL.cam.aspect=w/h;MDL.cam.updateProjectionMatrix();
+}
+function renderModel(){ if(MDL.ok&&MDL.ren) MDL.ren.render(MDL.scene,MDL.cam); }
+
+function bootModel(){
+  if(MDL.booting||MDL.ok||MDL.failed) return;
+  MDL.booting=true;
+  if(typeof THREE==='undefined'||typeof THREE.GLTFLoader!=='function'){ modelFailed(); return; }
+  var cv=document.getElementById('model'),ren;
+  try{ ren=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true}); }
+  catch(e){ modelFailed(); return; }
+  if(!ren){ modelFailed(); return; }
+  ren.setClearColor(0x000000,0);
+  if(THREE.sRGBEncoding!==undefined) ren.outputEncoding=THREE.sRGBEncoding;
+
+  var scene=new THREE.Scene();
+  var cam=new THREE.PerspectiveCamera(34,1,0.1,100);
+  cam.position.set(0,0,MDL.baseZ);
+
+  /* lit in the site's own palette so the model belongs to the page rather than sitting on it */
+  scene.add(new THREE.AmbientLight(0x9FB4FF,0.60));
+  var key=new THREE.DirectionalLight(0x34E7C5,1.15); key.position.set(-1.7,1.4,2.3); scene.add(key);
+  var fill=new THREE.DirectionalLight(0x6C8CFF,0.85); fill.position.set(2.1,0.3,1.3); scene.add(fill);
+  var rim=new THREE.DirectionalLight(0xA77BFF,1.10); rim.position.set(0.7,1.1,-2.3); scene.add(rim);
+  var warm=new THREE.PointLight(0xFFD2A0,0.45,7); warm.position.set(1.0,-0.7,1.7); scene.add(warm);
+
+  var root=new THREE.Group(); scene.add(root);
+  MDL.ren=ren;MDL.scene=scene;MDL.cam=cam;MDL.root=root;
+  sizeModel();
+
+  new THREE.GLTFLoader().load(MODEL_URL,function(g){
+    var o=g.scene;
+    var box=new THREE.Box3().setFromObject(o);
+    var ctr=box.getCenter(new THREE.Vector3());
+    var sz=box.getSize(new THREE.Vector3());
+    o.position.sub(ctr);                          /* centre on the origin */
+    o.scale.setScalar(1.0/Math.max(sz.y,1e-4));   /* normalise height to 1 unit */
+    o.traverse(function(n){
+      if(n.isMesh&&n.material){ n.material.roughness=0.74; n.material.metalness=0.0; n.frustumCulled=false; }
+    });
+    root.add(o);
+    MDL.ok=true;MDL.booting=false;
+    stage.classList.add('model-ready');
+    if(ring)ring.classList.add('gone');
+    if(reduceMQ.matches){ MDL.root.rotation.set(0,0,0); renderModel(); }
+    else kick();
+  },function(ev){
+    if(ev&&ev.total) setRing(Math.round(126*(1-Math.min(1,ev.loaded/ev.total))));
+  },function(){ modelFailed(); });
+}
+
+addEventListener('pointermove',function(e){
+  if(!MDL.ok||reduceMQ.matches) return;
+  var r=stage.getBoundingClientRect();
+  if(r.bottom<0||r.top>window.innerHeight) return;
+  MDL.ty=clamp(((e.clientX-r.left)/Math.max(1,r.width))*2-1,-1,1)*0.62;
+  MDL.tp=clamp(((e.clientY-r.top)/Math.max(1,r.height))*2-1,-1,1)*0.34;
+  MDL.pointer=true;kick();
+},{passive:true});
+document.addEventListener('mouseleave',function(){MDL.pointer=false;},{passive:true});
+
+/* ---------- rAF drive ---------- */
+var target=0,shown=0,rafId=null,lastTick=0,onScreen=true;
+function tick(now){
+  var dt=Math.min(100,now-(lastTick||now));lastTick=now;
+  shown+=(target-shown)*(1-Math.pow(1-0.16,dt/16.667));
+  if(loadRamping){loadK=clamp((now-loadStart)/900,0,1);if(loadK>=1)loadRamping=false;}
+  orbitPhase+=dt*0.000045;
+  updateBands(shown);
+  if(now-lastChipAt>28) placeChips(now,shown);
+
+  if(MDL.ok&&!reduceMQ.matches){
+    var ty=MDL.ty,tp=MDL.tp;
+    if(!MDL.pointer){ MDL.idle+=dt*0.00042; ty=Math.sin(MDL.idle)*0.26; tp=Math.sin(MDL.idle*0.68)*0.09; }
+    var a=1-Math.pow(1-0.085,dt/16.667);
+    MDL.yaw+=(ty-MDL.yaw)*a;
+    MDL.pitch+=(tp-MDL.pitch)*a;
+    MDL.root.rotation.y=MDL.yaw;
+    MDL.root.rotation.x=MDL.pitch;
+    MDL.cam.position.z=MDL.baseZ-shown*0.30;
+    renderModel();
+  }
+  if(reduceMQ.matches&&Math.abs(target-shown)<0.0005&&!loadRamping){shown=target;rafId=null;lastTick=0;return;}
+  rafId=requestAnimationFrame(tick);
+}
+function kick(){if(rafId===null&&onScreen)rafId=requestAnimationFrame(tick);}
+function onScroll(){target=heroProgress();kick();}
+if('IntersectionObserver' in window){
+  new IntersectionObserver(function(es){
+    onScreen=es[0].isIntersecting;
+    if(onScreen)kick();
+    else if(rafId!==null){cancelAnimationFrame(rafId);rafId=null;lastTick=0;}
+  },{rootMargin:'140px'}).observe(heroSec);
+}
+
+/* ---------- gates, kept live ---------- */
+var STATIC_MQ=STATIC_GATES.map(function(q){return matchMedia(q);});
+var scrubOn=false;
+function enableScrub(){
+  document.body.classList.remove('static-on');
+  if(!scrubOn){scrubOn=true;addEventListener('scroll',onScroll,{passive:true});}
+  bandState.forEach(function(s){s.op=-1;s.k=-1;});
+  updateBands(heroProgress());onScroll();
+}
+function disableScrub(){
+  document.body.classList.add('static-on');
+  if(scrubOn){scrubOn=false;removeEventListener('scroll',onScroll);}
+  if(rafId!==null){cancelAnimationFrame(rafId);rafId=null;lastTick=0;}
+  renderModel();
+}
+function applyHeroMode(){
+  if(STATIC_MQ.some(function(m){return m.matches;})) disableScrub(); else enableScrub();
+}
+STATIC_MQ.forEach(function(m){
+  if(m.addEventListener)m.addEventListener('change',applyHeroMode);
+  else if(m.addListener)m.addListener(applyHeroMode);
+});
+
+/* ---------- section entrances ---------- */
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      e.target.classList.add('in');
+      setTimeout(function(){e.target.classList.add('settled');},1500);
+      io.unobserve(e.target);
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -6% 0px'});
+  [].slice.call(document.querySelectorAll('.rvgroup')).forEach(function(g){io.observe(g);});
+  [].slice.call(document.querySelectorAll('.rv')).forEach(function(el){
+    if(!el.closest('.rvgroup'))io.observe(el);
+  });
+}
+
+/* ---------- form, mailto ---------- */
+document.getElementById('cform').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('f-name').value.trim();
+  var em=document.getElementById('f-email').value.trim();
+  var m=document.getElementById('f-msg').value.trim();
+  if(!n||!em||!m){
+    [['f-name',n],['f-email',em],['f-msg',m]].forEach(function(pr){
+      document.getElementById(pr[0]).style.borderColor=pr[1]?'':'var(--teal)';
+    });
+    return;
+  }
+  window.location.href='mailto:apy270602@gmail.com?subject='+encodeURIComponent('Role enquiry from '+n)+
+    '&body='+encodeURIComponent(m+'\n\n'+n+'\n'+em);
+  document.getElementById('sent').classList.add('on');
+});
+var copyBtn=document.getElementById('copy');
+copyBtn.addEventListener('click',function(){
+  var txt='apy270602@gmail.com';
+  function ok(){copyBtn.textContent='Copied.';setTimeout(function(){copyBtn.textContent='Copy address';},2200);}
+  function fb(){var ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok();}catch(e){copyBtn.textContent='Select and copy';}
+    document.body.removeChild(ta);}
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(ok,fb);else fb();
+});
+
+/* ---------- reduced motion, live both ways ---------- */
+function pinFinal(){
+  [].slice.call(document.querySelectorAll('.rvgroup,.rv')).forEach(function(g){g.classList.add('in','settled');});
+  bandEls.forEach(function(el,i){el.style.opacity=(i===BANDS.length-1)?'1':'0';el.style.setProperty('--k','1');});
+  if(rafId!==null){cancelAnimationFrame(rafId);rafId=null;lastTick=0;}
+  if(MDL.ok){MDL.root.rotation.set(0,0,0);MDL.cam.position.z=MDL.baseZ;renderModel();}
+}
+function onRM(e){ if(e.matches) pinFinal(); else applyHeroMode(); }
+if(reduceMQ.addEventListener)reduceMQ.addEventListener('change',onRM);
+else if(reduceMQ.addListener)reduceMQ.addListener(onRM);
+document.addEventListener('visibilitychange',function(){document.body.classList.toggle('paused',document.hidden);});
+
+/* ---------- go ---------- */
+applyHeroMode();
+placeChips(performance.now(),0);
+if(reduceMQ.matches) pinFinal();
+addEventListener('resize',function(){
+  bandState.forEach(function(s){s.op=-1;s.k=-1;});
+  sizeModel();renderModel();
+  onScroll();placeChips(performance.now(),shown);
+},{passive:true});
+
+/* three.min.js and GLTFLoader.js are deferred, so they have run by DOMContentLoaded */
+function tryBoot(){ if(typeof THREE!=='undefined'&&THREE.GLTFLoader) bootModel(); else modelFailed(); }
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',tryBoot);
+else tryBoot();
+
+})();
+</script>
+</body>
+</html>
