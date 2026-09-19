@@ -184,13 +184,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
   .scrim{background:linear-gradient(to top,rgba(7,11,24,.97) 0%,rgba(7,11,24,.92) 30%,rgba(7,11,24,.55) 55%,rgba(7,11,24,.10) 78%,rgba(7,11,24,0) 100%)}
   .cue{display:none}
 }
-/* a short phone in landscape, or a very short window: shrink further so nothing collides */
-@media (max-width:760px) and (max-height:700px){
-  .portal{top:27%;width:min(70vw,280px)}
-  .orbit{top:27%;width:min(88vw,330px);height:min(88vw,330px)}
-  .band h1{font-size:clamp(25px,7vw,34px)}
-  .band .sub{font-size:14px;margin-top:10px}
-}
+/* When layoutHero() finds there is genuinely not enough room, it adds .tight and the copy
+   shrinks so the model still gets a usable share of a very small screen. */
+.stage.tight .band .kick{font-size:10px;margin-bottom:6px}
+.stage.tight .band h1{font-size:23px}
+.stage.tight .band .sub{font-size:13px;margin-top:8px}
+.stage.tight .band .avail{font-size:10.5px;margin-top:7px}
+.stage.tight .band .cta{margin-top:12px;gap:8px}
+.stage.tight .btn{padding:10px 15px;font-size:12.5px}
+/* No short-height breakpoint here on purpose. Breakpoints guess the viewport; layoutHero()
+   in the script measures the copy block and fits the model into whatever space is actually
+   left, which is the only thing that holds on real phones with a URL bar. */
 @media (max-height:620px){.cue,.ring-load{display:none}}
 
 /* ---------- sections ---------- */
@@ -890,6 +894,7 @@ function bootModel(){
     MDL.ok=true;MDL.booting=false;
     stage.classList.add('model-ready');
     if(ring)ring.classList.add('gone');
+    layoutHero();
     if(reduceMQ.matches){ MDL.root.rotation.set(0,0,0); renderModel(); }
     else kick();
   },function(ev){
@@ -906,6 +911,44 @@ addEventListener('pointermove',function(e){
   MDL.pointer=true;kick();
 },{passive:true});
 document.addEventListener('mouseleave',function(){MDL.pointer=false;},{passive:true});
+
+/* ---------- fit the model into the space the copy leaves (phones) ---------- */
+var portalEl=document.querySelector('.portal'), bandsEl=document.querySelector('.bands');
+function freeSpaceAbove(){
+  var stageH=stage.clientHeight||window.innerHeight;
+  var navH=document.querySelector('nav').getBoundingClientRect().height;
+  var copyH=heroCopy.getBoundingClientRect().height;
+  var padB=parseFloat(getComputedStyle(bandsEl).paddingBottom)||24;
+  return {stageH:stageH,navH:navH,avail:stageH-copyH-padB-navH-16};
+}
+function layoutHero(){
+  if(window.innerWidth>=760){
+    stage.classList.remove('tight');
+    portalEl.style.top='';portalEl.style.width='';
+    orbitEl.style.top='';orbitEl.style.width='';orbitEl.style.height='';
+    return;
+  }
+  var m=freeSpaceAbove();
+  /* not enough room for a usable model: shrink the copy once, then measure again */
+  var wantTight=m.avail<165;
+  if(wantTight!==stage.classList.contains('tight')){
+    stage.classList.toggle('tight',wantTight);
+    m=freeSpaceAbove();
+  }
+  /* size from the space that actually exists, never from a clamped guess: clamping the
+     available height but still centring inside it is what pushed the model into the copy */
+  var h=Math.max(76,Math.min(m.avail-12,213));
+  var w=Math.min(window.innerWidth*0.84, h*1.6, 340);
+  h=w/1.6;
+  portalEl.style.width=Math.round(w)+'px';
+  var centre=m.navH+Math.max(h/2+6, m.avail/2);
+  var pct=(centre/m.stageH*100).toFixed(2)+'%';
+  portalEl.style.top=pct; orbitEl.style.top=pct;
+  var ow=Math.min(window.innerWidth*0.96, w*1.22);
+  orbitEl.style.width=Math.round(ow)+'px';
+  orbitEl.style.height=Math.round(ow)+'px';
+  sizeModel(); renderModel();
+}
 
 /* ---------- one rAF loop: the orbit and the model ---------- */
 var rafId=null,lastTick=0,onScreen=true;
@@ -996,10 +1039,12 @@ else if(reduceMQ.addListener)reduceMQ.addListener(onRM);
 document.addEventListener('visibilitychange',function(){document.body.classList.toggle('paused',document.hidden);});
 
 /* ---------- go ---------- */
+layoutHero();
 placeChips(performance.now());
 if(reduceMQ.matches) pinFinal(); else kick();
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){layoutHero();lastBoxAt=-1e9;placeChips(performance.now());});
 addEventListener('resize',function(){
-  lastBoxAt=-1e9; sizeModel(); renderModel(); placeChips(performance.now());
+  lastBoxAt=-1e9; layoutHero(); sizeModel(); renderModel(); placeChips(performance.now());
 },{passive:true});
 
 function tryBoot(){ if(typeof THREE!=='undefined'&&THREE.GLTFLoader) bootModel(); else modelFailed(); }
