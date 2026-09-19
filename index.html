@@ -99,16 +99,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
 @media (pointer:coarse){.btn,.talk{min-height:44px}}
 
-/* ---------- HERO: pinned stage, character portal, orbiting chips ---------- */
-.hero{position:relative;height:440vh;z-index:2}
-.stage{position:sticky;top:0;height:100vh;overflow:hidden}
+/* ---------- HERO: one screen, the model is the interaction ---------- */
+.hero{position:relative;height:100vh;min-height:620px;z-index:2}
+.stage{position:relative;height:100%;overflow:hidden}
 .ghost{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:1}
 .ghost span{font-family:var(--display);font-weight:800;letter-spacing:-.05em;
-  font-size:clamp(88px,20vw,300px);line-height:1;color:#fff;opacity:.035;
-  transition:opacity .6s var(--ease);white-space:nowrap}
+  font-size:clamp(88px,20vw,300px);line-height:1;color:#fff;opacity:.035;white-space:nowrap}
 
-.portal{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:min(58vw,640px);aspect-ratio:16/10;pointer-events:none}
+.portal{position:absolute;z-index:2;left:50%;top:46%;transform:translate(-50%,-50%);
+  width:min(62vw,680px);aspect-ratio:16/10;pointer-events:none}
 .portal .inner{position:absolute;inset:0;overflow:hidden;
   -webkit-mask-image:radial-gradient(ellipse 60% 64% at 52% 48%,#000 38%,rgba(0,0,0,.55) 62%,transparent 80%);
   mask-image:radial-gradient(ellipse 60% 64% at 52% 48%,#000 38%,rgba(0,0,0,.55) 62%,transparent 80%)}
@@ -125,8 +124,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .portal .halo{position:absolute;inset:-14%;border-radius:50%;pointer-events:none;
   background:radial-gradient(circle at 50% 50%,rgba(108,140,255,.16),transparent 62%)}
 
-/* orbit ring */
-.orbit{position:absolute;z-index:3;left:50%;top:50%;width:min(80vw,820px);height:min(80vw,820px);
+.orbit{position:absolute;z-index:3;left:50%;top:46%;width:min(80vw,840px);height:min(80vw,840px);
   transform:translate(-50%,-50%);pointer-events:none}
 .orbit .ring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(82,104,174,.20)}
 .orbit .ring.r2{inset:13%;border-color:rgba(82,104,174,.13)}
@@ -139,29 +137,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
   font-style:normal;font-size:10px;font-weight:700;font-family:var(--body);color:var(--ink)}
 @media (max-width:820px){.chip{font-size:10.5px;padding:6px 11px 6px 7px}.chip i{width:17px;height:17px;font-size:9px}}
 
-/* hero copy bands */
 .bands{position:absolute;inset:0;z-index:4;display:grid;align-items:end;
-  padding:0 clamp(20px,6vw,88px) clamp(70px,13vh,130px);pointer-events:none}
-.band{grid-area:1/1;opacity:0;text-shadow:var(--tshadow);will-change:opacity;max-width:44ch}
+  padding:0 clamp(20px,6vw,88px) clamp(84px,15vh,150px);pointer-events:none}
+.band{max-width:46ch;text-shadow:var(--tshadow)}
 .band .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
-  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:14px}
-.band h1,.band h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,5.2vw,68px);line-height:1.02}
-.band .sub{margin-top:16px;font-size:clamp(15px,1.4vw,19px);color:var(--text);opacity:.92;max-width:38ch}
-.band .cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;pointer-events:auto}
-.w{display:inline-block;white-space:pre}
-.c{display:inline-block;white-space:pre}
-.e-rise .w{--kc:clamp(0,(var(--k,0) - var(--th,0))*2.8,1);opacity:var(--kc);
-  transform:translateY(calc((1 - var(--kc))*28px))}
-.e-rise .sub{--ks:clamp(0,(var(--k,0) - .6)*3.4,1);opacity:var(--ks);transform:translateY(calc((1 - var(--ks))*14px))}
-.e-rise .cta{--kb:clamp(0,(var(--k,0) - .74)*4.4,1);opacity:var(--kb);transform:translateY(calc((1 - var(--kb))*14px))}
-.e-char .c{--kc:clamp(0,(var(--k,0) - var(--th,0))*2.6,1);opacity:var(--kc);
-  transform:translate(calc((1 - var(--kc))*var(--jx,0px)),calc((1 - var(--kc))*var(--jy,0px)))}
-.e-count .w{--kc:clamp(0,(var(--k,0) - var(--th,0))*3.2,1);opacity:var(--kc);
-  transform:scale(calc(.72 + .28*var(--kc)))}
-.e-count .w.hot{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-/* gradient-clipped text must lose the band's text-shadow: with color:transparent the shadow
-   paints a dark silhouette of the glyphs underneath and the gradient reads almost black */
-.band .kick,.e-count .w.hot{text-shadow:none}
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:14px;text-shadow:none}
+.band h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.6vw,72px);line-height:1.02}
+.band .sub{margin-top:18px;font-size:clamp(15px,1.4vw,19px);color:var(--text);opacity:.92;max-width:40ch}
+.band .avail{margin-top:12px;font-family:var(--mono);font-size:12.5px;letter-spacing:.04em;
+  color:var(--teal);display:flex;align-items:center;gap:9px;text-shadow:none}
+.band .avail::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal);
+  flex:none;box-shadow:0 0 12px rgba(52,231,197,.8)}
+.band .cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px;pointer-events:auto}
 
 .scrim{position:absolute;inset:0;z-index:3;pointer-events:none;
   background:linear-gradient(to top,rgba(7,11,24,.94) 0%,rgba(7,11,24,.80) 22%,rgba(7,11,24,.34) 48%,rgba(7,11,24,0) 74%)}
@@ -170,22 +158,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:cent
 .ring-load circle{transition:stroke-dashoffset .18s linear}
 .ring-load.gone{opacity:0;transition:opacity .6s var(--ease)}
 
-/* static hero for reduced motion and very short screens */
-.static-hero{position:absolute;inset:0;z-index:6;display:none;align-items:end;
-  padding:0 clamp(20px,6vw,88px) clamp(60px,11vh,120px)}
-body.static-on .bands,body.static-on .orbit,body.static-on .ring-load{display:none}
-body.static-on .static-hero{display:flex}
-body.static-on .hero{height:100vh}
-body.static-on .portal #model{opacity:1}
-@media (max-height:560px){.ring-load{display:none}}
-/* on a phone the copy takes the full width, so lift the portal and tighten the orbit to
-   leave the lower third of the screen to the text */
+/* the hero no longer scrubs, so it needs an honest cue that there is a page below */
+.cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:5;
+  width:22px;height:34px;border:1px solid var(--border-int);border-radius:12px;pointer-events:none;opacity:.55}
+.cue span{position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:2px;
+  background:var(--teal);transform:translateX(-50%);animation:cue 2.2s var(--ease-soft) infinite}
+@keyframes cue{0%{opacity:0;transform:translateX(-50%) translateY(0)}
+  30%{opacity:1}70%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(12px)}}
 @media (max-width:760px){
-  .portal{top:38%;width:min(84vw,460px)}
-  .orbit{top:38%;width:min(96vw,430px);height:min(96vw,430px)}
-  .bands{padding-bottom:clamp(48px,9vh,90px)}
-  .band h1,.band h2{font-size:clamp(29px,8vw,44px)}
+  .portal{top:40%;width:min(92vw,520px)}
+  .orbit{top:40%;width:min(98vw,450px);height:min(98vw,450px)}
+  .bands{padding-bottom:clamp(56px,10vh,96px)}
+  .band h1{font-size:clamp(31px,8.4vw,46px)}
+  .cue{display:none}
 }
+@media (max-height:620px){.cue,.ring-load{display:none}}
 
 /* ---------- sections ---------- */
 main{position:relative;z-index:2}
@@ -373,7 +360,7 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 <!-- ============ HERO ============ -->
 <section class="hero" aria-label="Introduction">
   <div class="stage">
-    <div class="ghost" aria-hidden="true"><span id="ghost">ANALYST</span></div>
+    <div class="ghost" aria-hidden="true"><span>ANALYST</span></div>
 
     <div class="portal" aria-hidden="true">
       <div class="halo"></div>
@@ -395,44 +382,19 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     </svg>
 
     <div class="bands">
-      <div class="band e-rise" data-band="0">
+      <div class="band" id="herocopy">
         <p class="kick">Birmingham, England</p>
-        <h1 data-split="word" data-text="Aditya Pratap Yadav"></h1>
-        <p class="sub">Graduate Business Analyst. Business analytics on top of computer science.</p>
+        <h1>Aditya Pratap Yadav</h1>
+        <p class="sub">Graduate Business Analyst. I turn open briefs into something a team can actually run.</p>
+        <p class="avail">Eligible to work in the UK. No sponsorship needed.</p>
         <div class="cta">
           <a class="btn btn-grad" href="#project">See the work</a>
           <a class="btn btn-ghost" href="#contact">Get in touch</a>
         </div>
       </div>
-      <div class="band e-char" data-band="1">
-        <h2 data-split="char" data-text="Most data arrives as a mess."></h2>
-        <p class="sub">Somebody has to make it answer a question. That is the job I trained for.</p>
-      </div>
-      <div class="band e-count" data-band="2">
-        <h2 data-split="word" data-hot="1,878 94" data-text="1,878 rows. 94 spellings. One answer."></h2>
-        <p class="sub">A live client inside the University of Birmingham Library, and a brief that did not say what to build.</p>
-      </div>
-      <div class="band e-rise" data-band="3">
-        <h2 data-split="word" data-text="Ask better questions first."></h2>
-        <p class="sub">Eligible to work in the UK, no sponsorship needed, and looking for a graduate Business Analyst role.</p>
-        <div class="cta">
-          <a class="btn btn-grad" href="#contact">Let's talk</a>
-          <a class="btn btn-ghost" href="assets/Aditya-Pratap-Yadav-CV.pdf" download>Download CV</a>
-        </div>
-      </div>
     </div>
 
-    <div class="static-hero">
-      <div>
-        <p class="kick">Birmingham, England</p>
-        <h1 style="font-size:clamp(32px,8.5vw,56px);margin-top:14px">Aditya Pratap Yadav</h1>
-        <p class="sub" style="margin-top:15px;font-size:16px;color:var(--text);max-width:32ch">Graduate Business Analyst. I turn messy data into an answer somebody can act on.</p>
-        <div class="cta" style="margin-top:24px;display:flex;gap:11px;flex-wrap:wrap">
-          <a class="btn btn-grad" href="#contact">Let's talk</a>
-          <a class="btn btn-ghost" href="assets/Aditya-Pratap-Yadav-CV.pdf" download>Download CV</a>
-        </div>
-      </div>
-    </div>
+    <div class="cue" aria-hidden="true"><span></span></div>
   </div>
 </section>
 
@@ -523,11 +485,11 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
     <div class="rvgroup">
       <p class="kick rv">Analytics and consultancy project</p>
       <h2 class="h2 rv">From Operational Record to Evidence Base</h2>
-      <p class="lede rv">A five person consultancy engagement for the Research Skills Team inside Libraries and Learning Resources at the University of Birmingham. A live client, their own data, their own deadline.</p>
+      <p class="lede rv">A five person consultancy for the University of Birmingham Library. A live client, their own data, and a brief that did not say what to build.</p>
     </div>
     <div class="rvgroup">
       <p class="statement rv">The headline said attendance had fallen 48 percent.<span class="hit">It had not. The records had.</span></p>
-      <p class="lede rv">Forty seven of the 399 sessions had no attendance recorded at all, and only a quarter had a school recorded against them. Once the missing records were accounted for, average attendance per session was almost unchanged. The collapse was in the recording, not in the room.</p>
+      <p class="lede rv">Forty seven of the 399 sessions had no attendance recorded at all. Once that was accounted for, average attendance per session was almost unchanged.</p>
       <div class="figs rv">
         <div class="fig"><p class="v">4,935</p><p class="l">Total attendees</p></div>
         <div class="fig"><p class="v">15.4</p><p class="l">Average per session</p></div>
@@ -536,16 +498,16 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
       </div>
     </div>
     <div class="pcols rvgroup">
-      <div class="rv"><h4>The real requirement</h4><p>No KPIs existed, so we agreed them from scratch with the client. The open brief became three ranked workstreams: workshop performance, a reporting asset the team could maintain themselves, and where engagement was missing.</p></div>
-      <div class="rv"><h4>The scope line</h4><p>Partway through, the remit moved from describing what had happened to predicting what happens next. We put the change in front of the client, agreed what it meant for the deadline, and re-set the scope in writing.</p></div>
-      <div class="rv"><h4>The handover</h4><p>1,878 records from 2023 to 2026 merged and cleaned in Python, six Tableau dashboards, exponential smoothing forecasts, and a documented pipeline so the team can rerun it without me.</p></div>
+      <div class="rv"><h4>The real requirement</h4><p>No KPIs existed, so we agreed them with the client and turned an open brief into three ranked workstreams.</p></div>
+      <div class="rv"><h4>The scope line</h4><p>When the remit grew from describing the past to predicting the future, we put the change to the client and re-set the scope in writing.</p></div>
+      <div class="rv"><h4>The handover</h4><p>1,878 records cleaned in Python, six Tableau dashboards, forecasts, and a documented pipeline the team can rerun without me.</p></div>
     </div>
     <div class="shots rv">
-      <figure class="shot"><div class="fr"><img src="assets/dashboard-1.jpg" alt="Overview dashboard: total attendees, sessions delivered, average attendance, satisfaction and share of sessions with a school recorded" loading="lazy" decoding="async"></div><figcaption><b>Overview.</b> The headline numbers, and the footnote that turned out to matter: only 352 of the 399 sessions had attendance recorded at all.</figcaption></figure>
-      <figure class="shot"><div class="fr"><img src="assets/dashboard-2.jpg" alt="Workshop performance dashboard: attendance per session, fill rate against planned capacity, satisfaction against attendance" loading="lazy" decoding="async"></div><figcaption><b>Workshop performance.</b> Fill rate against planned capacity, and satisfaction plotted against attendance so the client could see where to act.</figcaption></figure>
-      <figure class="shot"><div class="fr"><img src="assets/dashboard-3.jpg" alt="Forecast dashboard: attendance forecast, appointment forecast, demand by category and delivery mode" loading="lazy" decoding="async"></div><figcaption><b>Forecasts.</b> Exponential smoothing on attendance, one to one appointments, demand by category and delivery mode.</figcaption></figure>
-      <figure class="shot"><div class="fr"><img src="assets/dashboard-4.jpg" alt="Engagement dashboard: college engagement by service type and what can be attributed to a college" loading="lazy" decoding="async"></div><figcaption><b>Engagement gaps.</b> Which colleges use which service, and an honest split of what can and cannot be attributed to a college at all.</figcaption></figure>
-      <figure class="shot"><div class="fr"><img src="assets/dashboard-5.jpg" alt="Service mix dashboard: service mix by college, most requested topics, seasonality and delivery format" loading="lazy" decoding="async"></div><figcaption><b>Seasonality and service mix.</b> When each service peaks across the academic year, and how attendance splits by term and format.</figcaption></figure>
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-1.jpg" alt="Overview dashboard: attendees, sessions, average attendance, satisfaction" loading="lazy" decoding="async"></div><figcaption><b>Overview.</b> Only 352 of 399 sessions had attendance recorded.</figcaption></figure>
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-2.jpg" alt="Workshop performance: fill rate against capacity and satisfaction against attendance" loading="lazy" decoding="async"></div><figcaption><b>Workshop performance.</b> Fill rate and satisfaction against attendance.</figcaption></figure>
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-3.jpg" alt="Forecast dashboard for attendance, appointments, category demand and delivery mode" loading="lazy" decoding="async"></div><figcaption><b>Forecasts.</b> Exponential smoothing on attendance and appointments.</figcaption></figure>
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-4.jpg" alt="Engagement dashboard: college engagement and what can be attributed to a college" loading="lazy" decoding="async"></div><figcaption><b>Engagement gaps.</b> What can and cannot be attributed to a college.</figcaption></figure>
+      <figure class="shot"><div class="fr"><img src="assets/dashboard-5.jpg" alt="Service mix dashboard: seasonality, requested topics and delivery format" loading="lazy" decoding="async"></div><figcaption><b>Seasonality.</b> When each service peaks across the academic year.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -688,27 +650,17 @@ body.paused *,body.paused *::before,body.paused *::after{animation-play-state:pa
 (function(){
 "use strict";
 
-/* The placeholder is a render of the model itself, made offline with the same camera and
-   the same lights, so the swap to the live 3D is invisible. It used to be a frame of the old
-   video, which flashed a completely different picture for about a second on every load. */
 var POSTER='assets/model-poster.webp';
 var MODEL_URL='assets/aditya-model.glb';
-/* only these get a still hero: reduced motion, and a screen with no room for the journey */
-var STATIC_GATES=['(prefers-reduced-motion: reduce)','(max-height: 460px)'];
-
-var BANDS=[{a:0.00,b:0.20},{a:0.24,b:0.44},{a:0.48,b:0.68},{a:0.74,b:1.00}];
-var GHOSTS=['ANALYST','CLARITY','EVIDENCE','READY'];
 
 var stage=document.querySelector('.stage');
 var heroSec=document.querySelector('.hero');
 var posterL=document.querySelector('.portal .poster');
 var ring=document.querySelector('.ring-load');
-var bandEls=[].slice.call(document.querySelectorAll('.band'));
-var ghostEl=document.getElementById('ghost');
 var orbitEl=document.getElementById('orbit');
+var heroCopy=document.getElementById('herocopy');
 
 function clamp(v,lo,hi){return Math.min(hi,Math.max(lo,v));}
-function smoothstep(p,e0,e1){var t=clamp((p-e0)/(e1-e0),0,1);return t*t*(3-2*t);}
 function rng(s){s=s>>>0;return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296;};}
 var reduceMQ=window.matchMedia('(prefers-reduced-motion: reduce)');
 function setRing(v){if(ring)ring.style.setProperty('--ld',v);}
@@ -735,8 +687,7 @@ posterL.style.backgroundImage="url('"+POSTER+"')";
   function frame(t){
     raf=requestAnimationFrame(frame);
     /* the starfield is position:fixed so it is never off screen and legitimately runs the
-       whole time. It is decorative, so cap the repaint at ~32fps: imperceptible on drifting
-       stars and it halves the paint cost on a laptop battery. */
+       whole time. It is decorative, so cap the repaint at ~32fps. */
     if(t-lastDraw<30) return;
     lastDraw=t;
     ctx.clearRect(0,0,w,h);
@@ -761,38 +712,6 @@ posterL.style.backgroundImage="url('"+POSTER+"')";
   if(reduceMQ.addEventListener) reduceMQ.addEventListener('change',function(e){ e.matches?(stop(),still()):start(); });
 })();
 
-/* ---------- split headlines once ---------- */
-(function split(){
-  var r=rng(90919);
-  bandEls.forEach(function(band){
-    var el=band.querySelector('[data-split]'); if(!el) return;
-    var mode=el.getAttribute('data-split'), text=el.getAttribute('data-text')||'';
-    var hot=(el.getAttribute('data-hot')||'').split(' ').filter(Boolean);
-    var sr=document.createElement('span'); sr.className='sr'; sr.textContent=text;
-    var vis=document.createElement('span'); vis.setAttribute('aria-hidden','true');
-    var words=text.split(' '), total=text.replace(/ /g,'').length, ci=0;
-    words.forEach(function(word,wi){
-      var wsp=document.createElement('span'); wsp.className='w';
-      if(hot.some(function(hw){return word.indexOf(hw)===0;})) wsp.classList.add('hot');
-      if(mode==='word'){
-        wsp.textContent=word;
-        wsp.style.setProperty('--th',(wi/Math.max(1,words.length)*0.5+r()*0.05).toFixed(3));
-      } else {
-        for(var k=0;k<word.length;k++){
-          var c=document.createElement('span'); c.className='c'; c.textContent=word[k];
-          c.style.setProperty('--th',(ci/Math.max(1,total)*0.45+r()*0.12).toFixed(3));
-          c.style.setProperty('--jx',((r()*2-1)*34).toFixed(1)+'px');
-          c.style.setProperty('--jy',((r()*2-1)*30).toFixed(1)+'px');
-          wsp.appendChild(c); ci++;
-        }
-      }
-      vis.appendChild(wsp);
-      if(wi<words.length-1) vis.appendChild(document.createTextNode(' '));
-    });
-    el.textContent=''; el.appendChild(sr); el.appendChild(vis);
-  });
-})();
-
 /* ---------- orbiting skill chips ---------- */
 var TOOLS=[
   {n:'SQL',c:'#34E7C5'},{n:'Python',c:'#6C8CFF'},{n:'Tableau',c:'#A77BFF'},
@@ -808,73 +727,43 @@ var chipEls=[];
     d.appendChild(i); d.appendChild(s); orbitEl.appendChild(d); chipEls.push(d);
   });
 })();
-var orbitPhase=0, lastChipAt=0, copyBox=null, lastBoxAt=-1e9;
-/* Measure the band actually on screen rather than assuming where the copy sits. Guessing a
-   zone worked on desktop and failed completely on a phone, where the text runs full width
-   instead of sitting in a left column. */
-function activeCopyBox(now){
-  if(now-lastBoxAt<250) return copyBox;
+var orbitPhase=0, avoidBoxes=[], lastBoxAt=-1e9;
+var cueEl=document.querySelector('.cue');
+var navEl=document.querySelector('nav');
+/* Measure the real boxes the chips must stay off rather than assuming where they sit: a
+   guessed zone worked on desktop and failed on a phone, where the copy runs full width.
+   The scroll cue is in the list too, since the bottom of the orbit passes straight over it. */
+function getAvoid(now){
+  if(now-lastBoxAt<400) return avoidBoxes;
   lastBoxAt=now;
-  var best=null,bo=-1;
-  for(var i=0;i<bandEls.length;i++){
-    var o=parseFloat(bandEls[i].style.opacity||'0');
-    if(o>bo){bo=o;best=bandEls[i];}
-  }
-  copyBox=(best&&bo>0.05)?best.getBoundingClientRect():null;
-  return copyBox;
+  avoidBoxes=[];
+  if(heroCopy) avoidBoxes.push(heroCopy.getBoundingClientRect());
+  if(cueEl && getComputedStyle(cueEl).display!=='none') avoidBoxes.push(cueEl.getBoundingClientRect());
+  /* the nav too: on a shorter viewport the top of the orbit reaches up behind it */
+  if(navEl) avoidBoxes.push(navEl.getBoundingClientRect());
+  return avoidBoxes;
 }
-function placeChips(now,progress){
+function placeChips(now){
   var box=orbitEl.getBoundingClientRect();
-  /* on a narrow screen a chip at the far side of the orbit gets clipped by the viewport, so
-     pull the horizontal radius in and let the ring stay wide behind it */
   var narrow=window.innerWidth<760;
   var rx=box.width*(narrow?0.40:0.5)-8, ry=box.height*(narrow?0.46:0.42)-8;
   var cx=box.left+box.width/2, cy=box.top+box.height/2;
-  var cb=activeCopyBox(now), pad=44;
+  var boxes=getAvoid(now), pad=44;
   for(var i=0;i<chipEls.length;i++){
-    var a=orbitPhase+(i/chipEls.length)*Math.PI*2+progress*0.9;
+    var a=orbitPhase+(i/chipEls.length)*Math.PI*2;
     var x=Math.cos(a)*rx, y=Math.sin(a)*ry;
     var depth=0.62+0.38*(0.5+0.5*Math.sin(a));
-    var duck=1;
-    if(cb){
-      var px=cx+x, py=cy+y;
+    var duck=1, px=cx+x, py=cy+y;
+    for(var bI=0;bI<boxes.length;bI++){
+      var cb=boxes[bI];
       var dx=Math.max(cb.left-pad-px,0,px-(cb.right+pad));
       var dy=Math.max(cb.top-pad-py,0,py-(cb.bottom+pad));
-      duck=clamp(Math.sqrt(dx*dx+dy*dy)/70,0,1);   /* 0 inside the text, fading in over 70px */
+      var d=clamp(Math.sqrt(dx*dx+dy*dy)/70,0,1);
+      if(d<duck) duck=d;   /* nearest obstacle wins */
     }
     chipEls[i].style.transform='translate(-50%,-50%) translate('+x.toFixed(1)+'px,'+y.toFixed(1)+'px) scale('+depth.toFixed(3)+')';
     chipEls[i].style.opacity=((0.35+0.65*depth)*duck).toFixed(3);
   }
-  lastChipAt=now;
-}
-
-/* ---------- hero progress ---------- */
-function heroProgress(){
-  var range=heroSec.offsetHeight-window.innerHeight;
-  if(range<=0) return 0;
-  return clamp(-heroSec.getBoundingClientRect().top/range,0,1);
-}
-
-/* ---------- caption bands, delta gated ---------- */
-var bandState=BANDS.map(function(){return{op:-1,k:-1};});
-var loadK=0,loadStart=performance.now(),loadRamping=true,lastGhost='';
-function updateBands(p){
-  var top=-1,topI=0;
-  for(var i=0;i<BANDS.length;i++){
-    var b=BANDS[i],el=bandEls[i],st=bandState[i];
-    var f=Math.min(0.02,(b.b-b.a)/3);
-    var inR=(i===0)?1:smoothstep(p,b.a,b.a+f);
-    var outR=(i===BANDS.length-1)?1:(1-smoothstep(p,b.b-f,b.b));
-    var op=inR*outR;
-    var ramp=Math.min(0.03,(b.b-b.a)*0.38);
-    var k=clamp((p-b.a)/ramp,0,1);
-    if(i===0) k=Math.max(k,loadK);
-    if(Math.abs(op-st.op)>0.004){st.op=op;el.style.opacity=op.toFixed(3);}
-    if(Math.abs(k-st.k)>0.008){st.k=k;el.style.setProperty('--k',k.toFixed(3));}
-    if(op>top){top=op;topI=i;}
-  }
-  var g=GHOSTS[topI];
-  if(g!==lastGhost){lastGhost=g;ghostEl.textContent=g;}
 }
 
 /* ================= THE 3D MODEL ================= */
@@ -922,7 +811,50 @@ function bootModel(){
   var warm=new THREE.PointLight(0xFFD2A0,0.45,7); warm.position.set(1.0,-0.7,1.7); scene.add(warm);
 
   var root=new THREE.Group(); scene.add(root);
+
+  /* Something for him to sit inside rather than float on: two thin tilted rings that slowly
+     precess, and a shell of drifting motes. Both live on the scene, not on the model's own
+     group, so they stay put while he turns to follow the cursor. */
+  var deco=new THREE.Group(); scene.add(deco);
+  /* Nest the transforms: the outer group spins on Y, an inner group holds the fixed tilt.
+     Putting an animated Y on the same Euler as the tilt swings the ring edge on, which
+     renders as a hard diagonal streak across his face instead of an orbit. */
+  function makeRing(rad,tube,colour,tiltX,op){
+    var spin=new THREE.Group();
+    var tilt=new THREE.Group(); tilt.rotation.x=tiltX;
+    tilt.add(new THREE.Mesh(
+      new THREE.TorusGeometry(rad,tube,8,220),
+      new THREE.MeshBasicMaterial({color:colour,transparent:true,opacity:op,
+        blending:THREE.AdditiveBlending,depthWrite:false})));
+    spin.add(tilt);
+    return spin;
+  }
+  /* flat and wide, so they read as orbits passing his shoulders rather than his face */
+  var ringA=makeRing(1.02,0.0040,0x34E7C5,-1.36,0.50);
+  var ringB=makeRing(1.26,0.0030,0xA77BFF,-1.30,0.34);
+  deco.add(ringA); deco.add(ringB);
+  deco.position.y=-0.18;
+
+  var N=170, pos=new Float32Array(N*3), col=new Float32Array(N*3);
+  var pr=(function(x){return function(){x=(x*1664525+1013904223)>>>0;return x/4294967296;};})(1337);
+  var PAL=[[0.20,0.91,0.77],[0.42,0.55,1.00],[0.65,0.48,1.00],[0.79,0.84,1.00]];
+  for(var pi=0;pi<N;pi++){
+    var th=pr()*Math.PI*2, ph=Math.acos(2*pr()-1), rr=0.95+pr()*0.80;
+    pos[pi*3]=Math.sin(ph)*Math.cos(th)*rr;
+    pos[pi*3+1]=Math.cos(ph)*rr*0.72;
+    pos[pi*3+2]=Math.sin(ph)*Math.sin(th)*rr;
+    var c=PAL[(pr()*PAL.length)|0];
+    col[pi*3]=c[0]; col[pi*3+1]=c[1]; col[pi*3+2]=c[2];
+  }
+  var pgeo=new THREE.BufferGeometry();
+  pgeo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+  pgeo.setAttribute('color',new THREE.BufferAttribute(col,3));
+  var motes=new THREE.Points(pgeo,new THREE.PointsMaterial({size:0.016,vertexColors:true,
+    transparent:true,opacity:0.95,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));
+  deco.add(motes);
+
   MDL.ren=ren;MDL.scene=scene;MDL.cam=cam;MDL.root=root;
+  MDL.ringA=ringA;MDL.ringB=ringB;MDL.motes=motes;
   sizeModel();
 
   new THREE.GLTFLoader().load(MODEL_URL,function(g){
@@ -930,8 +862,8 @@ function bootModel(){
     var box=new THREE.Box3().setFromObject(o);
     var ctr=box.getCenter(new THREE.Vector3());
     var sz=box.getSize(new THREE.Vector3());
-    o.position.sub(ctr);                          /* centre on the origin */
-    o.scale.setScalar(1.0/Math.max(sz.y,1e-4));   /* normalise height to 1 unit */
+    o.position.sub(ctr);
+    o.scale.setScalar(1.0/Math.max(sz.y,1e-4));
     o.traverse(function(n){
       if(n.isMesh&&n.material){ n.material.roughness=0.74; n.material.metalness=0.0; n.frustumCulled=false; }
     });
@@ -956,16 +888,12 @@ addEventListener('pointermove',function(e){
 },{passive:true});
 document.addEventListener('mouseleave',function(){MDL.pointer=false;},{passive:true});
 
-/* ---------- rAF drive ---------- */
-var target=0,shown=0,rafId=null,lastTick=0,onScreen=true;
+/* ---------- one rAF loop: the orbit and the model ---------- */
+var rafId=null,lastTick=0,onScreen=true;
 function tick(now){
   var dt=Math.min(100,now-(lastTick||now));lastTick=now;
-  shown+=(target-shown)*(1-Math.pow(1-0.16,dt/16.667));
-  if(loadRamping){loadK=clamp((now-loadStart)/900,0,1);if(loadK>=1)loadRamping=false;}
   orbitPhase+=dt*0.000045;
-  updateBands(shown);
-  if(now-lastChipAt>28) placeChips(now,shown);
-
+  placeChips(now);
   if(MDL.ok&&!reduceMQ.matches){
     var ty=MDL.ty,tp=MDL.tp;
     if(!MDL.pointer){ MDL.idle+=dt*0.00042; ty=Math.sin(MDL.idle)*0.26; tp=Math.sin(MDL.idle*0.68)*0.09; }
@@ -974,14 +902,17 @@ function tick(now){
     MDL.pitch+=(tp-MDL.pitch)*a;
     MDL.root.rotation.y=MDL.yaw;
     MDL.root.rotation.x=MDL.pitch;
-    MDL.cam.position.z=MDL.baseZ-shown*0.30;
+    if(MDL.ringA){
+      MDL.ringA.rotation.y+=dt*0.00010;
+      MDL.ringB.rotation.y-=dt*0.00007;
+      MDL.motes.rotation.y+=dt*0.00005;
+    }
     renderModel();
   }
-  if(reduceMQ.matches&&Math.abs(target-shown)<0.0005&&!loadRamping){shown=target;rafId=null;lastTick=0;return;}
+  if(reduceMQ.matches){ rafId=null; lastTick=0; return; }
   rafId=requestAnimationFrame(tick);
 }
-function kick(){if(rafId===null&&onScreen)rafId=requestAnimationFrame(tick);}
-function onScroll(){target=heroProgress();kick();}
+function kick(){if(rafId===null&&onScreen&&!reduceMQ.matches)rafId=requestAnimationFrame(tick);}
 if('IntersectionObserver' in window){
   new IntersectionObserver(function(es){
     onScreen=es[0].isIntersecting;
@@ -990,35 +921,14 @@ if('IntersectionObserver' in window){
   },{rootMargin:'140px'}).observe(heroSec);
 }
 
-/* ---------- gates, kept live ---------- */
-var STATIC_MQ=STATIC_GATES.map(function(q){return matchMedia(q);});
-var scrubOn=false;
-function enableScrub(){
-  document.body.classList.remove('static-on');
-  if(!scrubOn){scrubOn=true;addEventListener('scroll',onScroll,{passive:true});}
-  bandState.forEach(function(s){s.op=-1;s.k=-1;});
-  updateBands(heroProgress());onScroll();
-}
-function disableScrub(){
-  document.body.classList.add('static-on');
-  if(scrubOn){scrubOn=false;removeEventListener('scroll',onScroll);}
-  if(rafId!==null){cancelAnimationFrame(rafId);rafId=null;lastTick=0;}
-  renderModel();
-}
-function applyHeroMode(){
-  if(STATIC_MQ.some(function(m){return m.matches;})) disableScrub(); else enableScrub();
-}
-STATIC_MQ.forEach(function(m){
-  if(m.addEventListener)m.addEventListener('change',applyHeroMode);
-  else if(m.addListener)m.addListener(applyHeroMode);
-});
-
 /* ---------- section entrances ---------- */
 if('IntersectionObserver' in window){
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){
       if(!e.isIntersecting)return;
       e.target.classList.add('in');
+      /* the flag is `settled`, never `done`: a `.done{display:none}` rule elsewhere on a
+         page silently hides every animated element once such a class lands */
       setTimeout(function(){e.target.classList.add('settled');},1500);
       io.unobserve(e.target);
     });
@@ -1058,26 +968,21 @@ copyBtn.addEventListener('click',function(){
 /* ---------- reduced motion, live both ways ---------- */
 function pinFinal(){
   [].slice.call(document.querySelectorAll('.rvgroup,.rv')).forEach(function(g){g.classList.add('in','settled');});
-  bandEls.forEach(function(el,i){el.style.opacity=(i===BANDS.length-1)?'1':'0';el.style.setProperty('--k','1');});
   if(rafId!==null){cancelAnimationFrame(rafId);rafId=null;lastTick=0;}
-  if(MDL.ok){MDL.root.rotation.set(0,0,0);MDL.cam.position.z=MDL.baseZ;renderModel();}
+  if(MDL.ok){MDL.root.rotation.set(0,0,0);renderModel();}
 }
-function onRM(e){ if(e.matches) pinFinal(); else applyHeroMode(); }
+function onRM(e){ if(e.matches) pinFinal(); else kick(); }
 if(reduceMQ.addEventListener)reduceMQ.addEventListener('change',onRM);
 else if(reduceMQ.addListener)reduceMQ.addListener(onRM);
 document.addEventListener('visibilitychange',function(){document.body.classList.toggle('paused',document.hidden);});
 
 /* ---------- go ---------- */
-applyHeroMode();
-placeChips(performance.now(),0);
-if(reduceMQ.matches) pinFinal();
+placeChips(performance.now());
+if(reduceMQ.matches) pinFinal(); else kick();
 addEventListener('resize',function(){
-  bandState.forEach(function(s){s.op=-1;s.k=-1;});
-  sizeModel();renderModel();
-  onScroll();placeChips(performance.now(),shown);
+  lastBoxAt=-1e9; sizeModel(); renderModel(); placeChips(performance.now());
 },{passive:true});
 
-/* three.min.js and GLTFLoader.js are deferred, so they have run by DOMContentLoaded */
 function tryBoot(){ if(typeof THREE!=='undefined'&&THREE.GLTFLoader) bootModel(); else modelFailed(); }
 if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',tryBoot);
 else tryBoot();
